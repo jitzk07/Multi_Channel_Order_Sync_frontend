@@ -4,6 +4,8 @@ import SyncButton from './components/SyncButton';
 import DashboardChart from './components/DashboardChart';
 import { getOrders, retryOrder } from './services/api';
 import toast from 'react-hot-toast';
+import { Toaster } from 'react-hot-toast';
+
 
 const App = () => {
   const [orders, setOrders] = useState([]);
@@ -57,6 +59,7 @@ const App = () => {
 
   return (
     <div className="min-h-screen bg-blue-50 p-6">
+    <Toaster position="top-right" />
       <h1 className="text-3xl font-bold text-center mb-4 text-blue-900">
         🧾 Multi-Channel Order Sync Tracker
       </h1>
@@ -206,7 +209,9 @@ const App = () => {
           <DashboardChart data={orders} />
         </div>
       </div>
+      <Toaster position="top-right" />
     </div>
+    
   );
 };
 
