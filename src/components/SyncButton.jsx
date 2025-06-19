@@ -8,7 +8,7 @@ const SyncButton = ({ channel, onSyncComplete }) => {
     try {
       toast.loading(`Syncing ${channel} orders...`, { id: 'sync' });
       const res = await syncOrders(channel);
-      toast.success(`Synced ${res.data.data.length} ${channel} orders`, { id: 'sync' });
+      toast.success(`Synced ${res.data.data.length} ${channel} orders`, { id: 'sync' }, { duration: 5000 });
       onSyncComplete(); 
     } catch (err) {
       toast.error(`Failed to sync ${channel}`, { id: 'sync' });
