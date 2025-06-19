@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:5000/api/orders';
+const BASE_URL = 'https://multi-channel-order-sync-backend.onrender.com/api/orders';
 
 export const syncOrders = (channel) => axios.post(`${BASE_URL}/sync/${channel}`);
 export const getOrders = (params = {}) => axios.get(BASE_URL, { params });
