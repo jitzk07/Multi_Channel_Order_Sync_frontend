@@ -59,7 +59,7 @@ const App = () => {
 
   return (
     <div className="min-h-screen bg-blue-50 p-6">
-    <Toaster position="top-right" />
+      <Toaster position="top-right" />
       <h1 className="text-3xl font-bold text-center mb-4 text-blue-900">
         🧾 Multi-Channel Order Sync Tracker
       </h1>
@@ -74,10 +74,11 @@ const App = () => {
       <div className="flex flex-col lg:flex-row gap-6">
         {/* Left Table Section */}
         <div className="lg:w-3/5 bg-white p-4 rounded-xl shadow-lg">
-          <div className="flex justify-between items-center mb-4">
-            <h2 className="text-xl font-semibold text-blue-800">Synced Orders</h2>
-            <div className="flex flex-wrap gap-2">
 
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 sm:gap-0 mb-4">
+            <h2 className="text-xl font-semibold text-blue-800">Synced Orders</h2>
+
+            <div className="flex flex-col sm:flex-row flex-wrap gap-2 sm:items-center">
               {/* Show All Orders */}
               <button
                 onClick={() => {
@@ -85,13 +86,14 @@ const App = () => {
                   setShowPendingOnly(false);
                 }}
                 disabled={!showFailedOnly && !showPendingOnly}
-                className={`text-sm px-3 py-1 rounded ${!showFailedOnly && !showPendingOnly
-                  ? 'bg-gray-300 text-gray-600 cursor-not-allowed'
-                  : 'bg-blue-600 hover:bg-blue-700 text-white'
+                className={`text-sm px-3 py-1 rounded w-full sm:w-auto ${!showFailedOnly && !showPendingOnly
+                    ? 'bg-gray-300 text-gray-600 cursor-not-allowed'
+                    : 'bg-blue-600 hover:bg-blue-700 text-white'
                   }`}
               >
                 Show All Orders
               </button>
+
               {/* Show Pending Orders */}
               <button
                 onClick={() => {
@@ -99,9 +101,9 @@ const App = () => {
                   setShowFailedOnly(false);
                 }}
                 disabled={showPendingOnly}
-                className={`text-sm px-3 py-1 rounded ${showPendingOnly
-                  ? 'bg-gray-300 text-gray-600 cursor-not-allowed'
-                  : 'bg-yellow-500 hover:bg-yellow-600 text-white'
+                className={`text-sm px-3 py-1 rounded w-full sm:w-auto ${showPendingOnly
+                    ? 'bg-gray-300 text-gray-600 cursor-not-allowed'
+                    : 'bg-yellow-500 hover:bg-yellow-600 text-white'
                   }`}
               >
                 Show Pending Orders
@@ -114,21 +116,19 @@ const App = () => {
                   setShowPendingOnly(false);
                 }}
                 disabled={showFailedOnly}
-                className={`text-sm px-3 py-1 rounded ${showFailedOnly
-                  ? 'bg-gray-300 text-gray-600 cursor-not-allowed'
-                  : 'bg-red-500 hover:bg-red-600 text-white'
+                className={`text-sm px-3 py-1 rounded w-full sm:w-auto ${showFailedOnly
+                    ? 'bg-gray-300 text-gray-600 cursor-not-allowed'
+                    : 'bg-red-500 hover:bg-red-600 text-white'
                   }`}
               >
                 Show Failed Orders
               </button>
 
-
-
               {/* Channel Filter Dropdown */}
               <select
                 value={selectedChannel}
                 onChange={(e) => setSelectedChannel(e.target.value)}
-                className="text-sm px-2 py-1 border rounded text-blue-800"
+                className="text-sm px-2 py-1 border rounded text-blue-800 w-full sm:w-auto"
               >
                 <option value="all">All Channels</option>
                 {uniqueChannels.map((channel) => (
@@ -138,8 +138,8 @@ const App = () => {
                 ))}
               </select>
             </div>
-
           </div>
+
 
           <div className="max-h-[400px] overflow-auto">
             <table className="min-w-full border text-sm">
@@ -211,7 +211,7 @@ const App = () => {
       </div>
       <Toaster position="top-right" />
     </div>
-    
+
   );
 };
 
